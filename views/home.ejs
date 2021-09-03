@@ -4,9 +4,13 @@
 <% postsArray.forEach(function(post){ %>
   <h1><%- post.postTitle  %></h1>
  <% if(post.postBody.length > 100){ %>
-  <p><%- post.postBody.slice(0,100)%>...</p>
+  <p><%- post.postBody.slice(0,100)%>...
+    <a href='http://localhost:3000/post/<%- post.postTitle  %>'> Read More</a>
+  </p>
  <% } else { %>
-  <p><%- post.postBody  %></p>
+  <p><%- post.postBody  %>
+    <a href='http://localhost:3000/post/<%- post.postTitle  %>'> Read More</a>
+  </p>
  <% } %>
 <% }); %>
 <%- include('partials/footer'); -%>
