@@ -1,5 +1,5 @@
 //jshint esversion:6
-
+var _ = require('lodash');
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -42,7 +42,16 @@ app.post('/compose', (req, res) => {
   res.redirect('/')
 });
 
+app.get('/post/:target', (req, res) => {
+ const requestedTitle = _.lowerCase(req.params.target);
+  postsArray.forEach(post => {
+    const storedTitle = _.lowerCase(post.postTitle)
+    if(requestedTitle === storedTitle){
+      console.log("Match found")
+    }
+  });
 
+});
 
 
 
